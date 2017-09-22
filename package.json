@@ -1,0 +1,208 @@
+{
+  "name": "grandata-react-library",
+  "version": "0.0.3",
+  "description": "Grandata React Library Boilerplate",
+  "author": "Grandata",
+  "main": "dist/index.js",
+  "style": "dist/styles.css",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "rm -rf dist coverage",
+    "start": "NODE_ENV=development start-storybook -p 6006 --config-dir config/storybook",
+    "guide": "NODE_ENV=development styleguidist server --config config/styleguide/styleguide.config.js",
+    "build": "NODE_ENV=production rollup -c",
+    "build:staging": "NODE_ENV=staging rollup -c",
+    "build:guide": "styleguidist build",
+    "develop": "npm-run-all --parallel start guide",
+    "lint": "eslint src/",
+    "typecheck": "flow check",
+    "typecheck:addType": "flow-typed",
+    "test": "NODE_ENV=development jest",
+    "test:watch": "jest --watchAll",
+    "coverage": "npm run test:coverage & npm run typecheck:coverage",
+    "test:coverage": "jest --coverage",
+    "typecheck:coverage": "flow-coverage-report -i 'src/**/*.js' -i 'src/**/*.jsx' -x 'src/test/**' -t html -t json -t text -o coverage/flow"
+  },
+  "keywords": [
+    "Grandata",
+    "Rollup",
+    "Library",
+    "React"
+  ],
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-proptypes": "^1.0.0"
+  },
+  "devDependencies": {
+    "@storybook/addon-info": "^3.1.6",
+    "@storybook/addon-knobs": "^3.1.8",
+    "@storybook/addon-notes": "^3.1.6",
+    "@storybook/react": "^3.1.8",
+    "autoprefixer": "^7.1.2",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-loader": "^7.1.1",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-plugin-inline-react-svg": "^0.4.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2015-rollup": "^3.0.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-1": "^6.24.1",
+    "cssnano": "^3.10.0",
+    "enzyme": "^2.9.1",
+    "eslint": "^4.3.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-airbnb-flow": "^1.0.2",
+    "eslint-loader": "^1.9.0",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jest": "^21.1.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.1.0",
+    "expect": "^1.20.2",
+    "expect-enzyme": "^1.1.1",
+    "extract-text-webpack-plugin": "^3.0.0",
+    "flow-bin": "^0.51.0",
+    "flow-coverage-report": "^0.3.0",
+    "flow-typed": "^2.1.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^20.0.4",
+    "jest-css-modules": "^1.1.0",
+    "jest-enzyme": "^3.5.3",
+    "livereload": "^0.6.2",
+    "npm-run-all": "^4.0.2",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-global-import": "^1.0.1",
+    "postcss-import": "^10.0.0",
+    "postcss-loader": "^2.0.6",
+    "postcss-modules": "^0.8.0",
+    "postcss-nested": "^2.1.0",
+    "postcss-simple-vars": "^4.0.0",
+    "postcss-url": "^7.1.1",
+    "precss": "^2.0.0",
+    "react-styleguidist": "^5.5.3",
+    "rollup": "^0.50.0",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-cleanup": "^1.0.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-eslint": "^4.0.0",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-image": "^1.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-postcss": "^0.5.4",
+    "rollup-plugin-replace": "^1.1.1",
+    "rollup-plugin-uglify": "^2.0.1",
+    "rollup-plugin-url": "^1.3.0",
+    "rollup-watch": "^4.3.1",
+    "snapguidist": "^2.0.0",
+    "svg-react-loader": "^0.4.4",
+    "webpack": "^3.4.1"
+  },
+  "babel": {
+    "env": {
+      "development": {
+        "presets": [
+          "es2015",
+          "stage-1",
+          "react",
+          "flow"
+        ],
+        "plugins": [
+          "inline-react-svg",
+          "transform-class-properties"
+        ]
+      },
+      "staging": {
+        "presets": [
+          "flow",
+          "stage-1",
+          "react",
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ]
+        ],
+        "plugins": [
+          "external-helpers",
+          "inline-react-svg",
+          "transform-class-properties"
+        ]
+      },
+      "production": {
+        "presets": [
+          "flow",
+          "stage-1",
+          "react",
+          [
+            "es2015",
+            {
+              "modules": false
+            }
+          ]
+        ],
+        "plugins": [
+          "external-helpers",
+          "inline-react-svg",
+          "transform-class-properties"
+        ]
+      }
+    }
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": [
+      "airbnb",
+      "plugin:flowtype/recommended",
+      "plugin:jest/recommended"
+    ],
+    "plugins": [
+      "flowtype",
+      "jest"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
+      "react/require-default-props": 0,
+      "jsx-a11y/href-no-hash": "off",
+      "jsx-a11y/anchor-is-valid": [
+        "warn",
+        {
+          "aspects": [
+            "invalidHref"
+          ]
+        }
+      ]
+    },
+    "env": {
+      "jest/globals": true
+    }
+  },
+  "flow-coverage-report": {
+    "threshold": 20
+  },
+  "jest": {
+    "verbose": true,
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    },
+    "moduleNameMapper": {
+      "\\.css$": "identity-obj-proxy",
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/config/jest/fileMock.js"
+    }
+  }
+}

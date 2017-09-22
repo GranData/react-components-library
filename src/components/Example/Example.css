@@ -1,0 +1,10 @@
+.Message {
+  width: 100%;
+  height: auto;
+  border: 1px solid midnightblue;
+  padding: 10px;
+  background-color: lightcoral;
+  &.info {
+    background-color: lightblue;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "eslint.nodePath": "./node_modules",
+  "prettier.eslintIntegration": true,
+  "eslint.validate": [ "javascript", "javascriptreact"]
+}

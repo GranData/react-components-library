@@ -1,0 +1,2 @@
+### Stateless Component
+    <StatelessComponent />

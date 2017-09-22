@@ -1,0 +1,12 @@
+[ignore]
+.*/node_modules/*
+.*/.storybook/*
+.*/.snapguidist/*
+
+[include]
+
+[libs]
+.*/flow-typed/npm/*
+./flow-typed/global.js
+
+[options]
